@@ -1,0 +1,31 @@
+<h1>Sub-Category</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @sub_category.name %>
+</p>
+
+<h3>Children</h3>
+
+<table class='table table-striped'>
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+
+<% @child_categories.each do |child_category| %>
+  <tr>
+    <td><%= child_category.name %></td>
+    <td>
+      <%= link_to 'Show', [@category, child_category] %>
+      <%= link_to 'Edit', edit_category_sub_category_path(@category, child_category) %>
+      <%= link_to 'Destroy', [@category, child_category], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New Subcategory', new_child_category_sub_category_path(@category, @sub_category) %> |
+<%= link_to 'Edit', edit_category_sub_category_path(@category, @sub_category) %> |
+<%= link_to 'Back', category_sub_categories_path %>
