@@ -121,6 +121,6 @@ class SubCategoriesController < ApplicationController
   end
 
   def init_parent_sub_category
-    @parent_sub_category = SubCategory.find(params[:id])
+    @parent_sub_category = SubCategory.find(params[:sub_category_id])
   end
 end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<div class='crumb'>
+  <div class='crumb-category'><%= @category.name %></div>
+  <div class='crumb-sub-category'><%= @sub_category.name %></div>
+</div>
+
+<p>
+  <b>Item name:</b>
+  <%= @item.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_category_sub_category_item_path(@category, @sub_category, @item) %> |
+<%= link_to 'Back', category_sub_category_items_path(@category, @sub_category) %>

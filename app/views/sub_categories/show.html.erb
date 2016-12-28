@@ -6,7 +6,7 @@
   <%= @sub_category.name %>
 </p>
 
-<h3>Children</h3>
+<h3>Children sub-categories</h3>
 
 <table class='table table-striped'>
   <tr>
@@ -27,5 +27,6 @@
 </table>
 
 <%= link_to 'New Subcategory', new_child_category_sub_category_path(@category, @sub_category) %> |
+<%= link_to 'Items List', category_sub_category_items_path(@category, @sub_category) %> |
 <%= link_to 'Edit', edit_category_sub_category_path(@category, @sub_category) %> |
 <%= link_to 'Back', category_sub_categories_path %>

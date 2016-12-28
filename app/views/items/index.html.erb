@@ -1,0 +1,29 @@
+<div class='crumb'>
+  <div class='crumb-category'><%= @category.name %></div>
+  <div class='crumb-sub-category'><%= @sub_category.name %></div>
+</div>
+
+<h1>Listing items</h1>
+
+<table class='table table-striped'>
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td>
+      <%= link_to 'Show', category_sub_category_item_path(@category, @sub_category, item) %>
+      <%= link_to 'Edit', edit_category_sub_category_item_path(@category, @sub_category, item) %>
+      <%= link_to 'Destroy', [@category, @sub_category, item], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_category_sub_category_item_path(@category, @sub_category) %> |
+<%= link_to "Back to sub category", category_sub_category_path(@category, @sub_category) %>

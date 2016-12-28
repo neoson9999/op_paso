@@ -5,6 +5,8 @@ class SubCategory < ActiveRecord::Base
   belongs_to :parent, class_name: 'SubCategory', foreign_key: 'parent_id'
   has_many :children, class_name: 'SubCategory', foreign_key: 'parent_id'
 
+  has_many :items
+
   before_save :assign_depth
   before_destroy :remove_association
 
