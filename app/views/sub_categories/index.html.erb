@@ -22,6 +22,12 @@
 <% end %>
 </table>
 
+<ul class='list-group'>
+  <% @sub_categories.each do |sub_category| %>
+    <li class='list-group-item'><%= sub_category.name %></li>
+  <% end %>
+</ul>
+
 <br />
 
 <%= link_to 'New Sub category', new_category_sub_category_path(@category) %> |
