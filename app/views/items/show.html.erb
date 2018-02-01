@@ -9,6 +9,31 @@
   <%= @item.name %>
 </p>
 
+<h1>Listing properties</h1>
 
+<table class='table table-striped'>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @properties.each do |property| %>
+  <tr>
+    <td><%= property.name %></td>
+    <td>
+      <%= link_to 'Show', [@category, @sub_category, @item, property] %>
+      <%= link_to 'Edit', edit_category_sub_category_item_property_path(@category, @sub_category, @item, property) %>
+      <%= link_to 'Destroy', [@category, @sub_category, @item, property], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'Add Property', new_property_category_sub_category_item_path(@category, @sub_category, @item) %> |
 <%= link_to 'Edit', edit_category_sub_category_item_path(@category, @sub_category, @item) %> |
 <%= link_to 'Back', category_sub_category_items_path(@category, @sub_category) %>

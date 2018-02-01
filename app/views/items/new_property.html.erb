@@ -1,0 +1,9 @@
+<div class='crumb'>
+  <div class='crumb-category'><%= @category.name %></div>
+  <div class='crumb-sub-category'><%= @sub_category.name %></div>
+</div>
+<h1>New Property</h1>
+
+<%= render 'new_property_form' %>
+
+<%= link_to 'Back', category_sub_category_items_path(@category, @sub_category) %>

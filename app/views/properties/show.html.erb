@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @property.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_category_sub_category_item_property_path(@category, @sub_category, @item, @property) %> |
+<%= link_to 'Back', category_sub_category_item_properties_path %>

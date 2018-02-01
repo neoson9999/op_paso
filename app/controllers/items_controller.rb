@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @item = Item.find(params[:id])
+    @properties = @item.properties
 
     respond_to do |format|
       format.html # show.html.erb
@@ -82,6 +83,32 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to category_sub_category_items_path(@category, @sub_category) }
       format.json { head :no_content }
+    end
+  end
+
+  def new_property
+    @item = Item.find(params[:id])
+    @property = Property.new
+
+    respond_to do |format|
+      format.html { render 'new_property' }
+      format.json { render json: @property }
+    end
+  end
+
+  def create_property
+    @item = Item.find(params[:id])
+    @property = Property.new(params[:property])
+
+    respond_to do |format|
+      if @property.save
+        ItemProperty.create(item_id: @item.id, property_id: @property.id)
+        format.html { redirect_to [@category, @sub_category, @item], notice: 'Property was successfully created.' }
+        format.json { render json: @property, status: :created, location: @property }
+      else
+        format.html { render action: 'new_property' }
+        format.json { render json: @property.errors, status: :unprocessable_entity }
+      end
     end
   end
 

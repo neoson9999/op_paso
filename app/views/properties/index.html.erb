@@ -1,0 +1,24 @@
+<h1>Listing properties</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @properties.each do |property| %>
+  <tr>
+    <td><%= property.name %></td>
+    <td><%= link_to 'Show', [@category, @sub_category, @item, property] %></td>
+    <td><%= link_to 'Edit', edit_category_sub_category_item_property_path(@category, @sub_category, @item, property) %></td>
+    <td><%= link_to 'Destroy', [@category, @sub_category, @item, property], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Property', new_category_sub_category_item_property_path %> |
+<%= link_to 'Back', [@category, @sub_category, @item] %>

@@ -7,7 +7,13 @@ OpPaso::Application.routes.draw do
         get 'new_child'
         post 'create_child'
       end
-      resources :items
+      resources :items do
+        member do
+          get 'new_property'
+          post 'create_property'
+        end
+        resources :properties
+      end
     end
   end
 
